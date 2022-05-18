@@ -74,7 +74,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between items-center px-6 py-8 h-screen w-screen bg-todo-home bg-no-repeat bg-center bg-contain">
+    <div className="flex flex-col justify-between items-center px-6 py-8 h-screen w-screen md:max-w-xl md:mx-auto bg-todo-home bg-no-repeat bg-center bg-contain">
       <div className="w-full space-y-4">
         <h1 className="text-3xl font-bold text-blue-700">
           {process.env.REACT_APP_NAME}
@@ -115,7 +115,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="flex flex-col w-full h-[80%] mt-4 justify-center text-4xl  rounded-xl overflow-hidden ">
-        <div className="space-y-2 px-4 overflow-y-scroll max-h-[90%]">
+        <div className="space-y-2  overflow-y-scroll max-h-[90%]">
           {state.todoItems.map((item: todoItemModel, index: number) => (
             <Todo
               id={item.id}
