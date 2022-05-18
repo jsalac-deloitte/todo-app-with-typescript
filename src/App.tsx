@@ -49,7 +49,7 @@ const TodoReducer = (state: todoState, action: todoAction) => {
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(TodoReducer, initialState);
-  const [id, setid] = useState<number>(0);
+  const [id, setid] = useState<number>(1);
   const inputTask = React.useRef<HTMLInputElement>(null);
 
   const getNextId = () => {
@@ -74,8 +74,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-around items-center px-6 h-screen w-screen bg-todo-home bg-no-repeat bg-center bg-contain">
-      <div className="w-full space-y-8">
+    <div className="flex flex-col justify-between items-center px-6 py-8 h-screen w-screen md:max-w-xl md:mx-auto bg-todo-home bg-no-repeat bg-center bg-contain">
+      <div className="w-full space-y-4">
         <h1 className="text-3xl font-bold text-blue-700">
           {process.env.REACT_APP_NAME}
           <span className="text-xs text-gray-600">
@@ -86,7 +86,7 @@ const App: React.FC = () => {
           <label htmlFor="todoInput" className="tracking-widest">
             Task
           </label>
-          <div className="flex items-center w-full border border-gray-300 px-2 py-2 rounded-lg">
+          <div className="flex items-center w-full border border-gray-300 px-2 py-2 rounded-lg bg-white">
             <input
               type="text"
               placeholder="type here..."
@@ -114,8 +114,8 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-full h-[70%] justify-center text-4xl  rounded-xl">
-        <div className="space-y-2 px-4">
+      <div className="flex flex-col w-full h-[80%] mt-4 justify-center text-4xl  rounded-xl overflow-hidden ">
+        <div className="space-y-2  overflow-y-scroll max-h-[90%]">
           {state.todoItems.map((item: todoItemModel, index: number) => (
             <Todo
               id={item.id}
